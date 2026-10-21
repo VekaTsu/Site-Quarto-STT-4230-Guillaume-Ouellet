@@ -1,5 +1,5 @@
 ---
-title: "Prénom Nom"
+title: "Guillaume Ouellet"
 embed-resources: true
 ---
 
@@ -12,9 +12,11 @@ Court paragraphe de présentation académique ou professionnelle.
 - Science des données
 - Programmation R
 - Visualisation
+- Mathématiques
+- Statistiques
 
 ## Liens
 
-- GitHub: <https://github.com/identifiant>
-- Site publié: <https://identifiant.github.io/nom-du-depot/>
+- GitHub: <https://github.com/VekaTsu>
+- Site publié: <https://VekaTsu.github.io/Site-Quarto-STT-4230-Guillaume-Ouellet/>
 - Portfolio public ou trace publique, si autorisé: <lien>

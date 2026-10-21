@@ -25,7 +25,7 @@
     "href": "parcours.html#compétences",
     "title": "Parcours et compétences",
     "section": "Compétences",
-    "text": "Compétences\n\nR et tidyverse\nQuarto\nGit et GitHub\nVisualisation de données"
+    "text": "Compétences\n\nR et tidyverse\nQuarto\nGitHub\nVisualisation de données"
   },
   {
     "objectID": "parcours.html#expériences-ou-formations",
@@ -65,29 +65,29 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Prénom Nom",
+    "title": "Guillaume Ouellet",
     "section": "",
     "text": "Court paragraphe de présentation académique ou professionnelle."
   },
   {
     "objectID": "index.html#présentation",
     "href": "index.html#présentation",
-    "title": "Prénom Nom",
+    "title": "Guillaume Ouellet",
     "section": "",
     "text": "Court paragraphe de présentation académique ou professionnelle."
   },
   {
     "objectID": "index.html#intérêts",
     "href": "index.html#intérêts",
-    "title": "Prénom Nom",
+    "title": "Guillaume Ouellet",
     "section": "Intérêts",
-    "text": "Intérêts\n\nScience des données\nProgrammation R\nVisualisation"
+    "text": "Intérêts\n\nScience des données\nProgrammation R\nVisualisation\nMathématiques\nStatistiques"
   },
   {
     "objectID": "index.html#liens",
     "href": "index.html#liens",
-    "title": "Prénom Nom",
+    "title": "Guillaume Ouellet",
     "section": "Liens",
-    "text": "Liens\n\nGitHub: https://github.com/identifiant\nSite publié: https://identifiant.github.io/nom-du-depot/\nPortfolio public ou trace publique, si autorisé:"
+    "text": "Liens\n\nGitHub: https://github.com/VekaTsu\nSite publié: https://VekaTsu.github.io/Site-Quarto-STT-4230-Guillaume-Ouellet/\nPortfolio public ou trace publique, si autorisé:"
   }
 ]
