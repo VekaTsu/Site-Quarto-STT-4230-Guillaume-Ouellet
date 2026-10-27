@@ -9,14 +9,14 @@ Court paragraphe de présentation académique ou professionnelle.
 
 ## Intérêts
 
-- Science des données
-- Programmation R
-- Visualisation
-- Mathématiques
-- Statistiques
+-   Science des données
+-   Programmation R
+-   Visualisation
+-   Mathématiques
+-   Statistiques
 
 ## Liens
 
-- GitHub: <https://github.com/VekaTsu>
-- Site publié: <https://VekaTsu.github.io/Site-Quarto-STT-4230-Guillaume-Ouellet/>
-- Portfolio public ou trace publique, si autorisé: <lien>
+-   GitHub: <https://github.com/VekaTsu>
+-   Site publié: <https://VekaTsu.github.io/Site-Quarto-STT-4230-Guillaume-Ouellet/>
+-   Portfolio public ou trace publique, si autorisé: <lien>

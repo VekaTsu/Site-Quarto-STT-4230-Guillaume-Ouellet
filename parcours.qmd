@@ -5,15 +5,20 @@ embed-resources: true
 
 ## Parcours
 
+J'étudie dans le baccalauréat en statistique à l'Université Laval depuis 2024. Ce programme m'amène à développer des compétences en analyse et traitement de données ainsi qu'en algorithmique. Il m'a aussi permis d'acquérir des compétences en programmation avec le logiciel R et Python. L'utilisation de GitHub m'est aussi possible.
+
 Décrire brièvement le parcours ou les intérêts professionnels.
 
 ## Compétences
 
-- R et tidyverse
-- Quarto
-- GitHub
-- Visualisation de données
+-   R et tidyverse
+-   Quarto
+-   GitHub
+-   Visualisation de données
+-   Algorithmique
 
 ## Expériences ou formations
+
+Dans le contexte de mon cours d’analyse de données, j’ai eu à travailler sur un projet concernant les causes et les acteurs majeurs de l’augmentation des émissions de CO~2~ dans le monde, qui m’a permis de solidifier mes compétences en R ainsi qu’en modélisation prédictive.
 
 Ajouter uniquement les éléments que vous acceptez de rendre publics.
