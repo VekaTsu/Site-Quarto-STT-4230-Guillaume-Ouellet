@@ -11,49 +11,49 @@
     "href": "parcours.html",
     "title": "Parcours et compétences",
     "section": "",
-    "text": "Décrire brièvement le parcours ou les intérêts professionnels."
+    "text": "J’étudie dans le baccalauréat en statistique à l’Université Laval depuis 2024. Ce programme m’amène à développer des compétences en analyse et traitement de données ainsi qu’en algorithmique. Il m’a aussi permis d’acquérir des compétences en programmation avec le logiciel R et Python. L’utilisation de GitHub m’est aussi possible.\nDécrire brièvement le parcours ou les intérêts professionnels."
   },
   {
     "objectID": "parcours.html#parcours",
     "href": "parcours.html#parcours",
     "title": "Parcours et compétences",
     "section": "",
-    "text": "Décrire brièvement le parcours ou les intérêts professionnels."
+    "text": "J’étudie dans le baccalauréat en statistique à l’Université Laval depuis 2024. Ce programme m’amène à développer des compétences en analyse et traitement de données ainsi qu’en algorithmique. Il m’a aussi permis d’acquérir des compétences en programmation avec le logiciel R et Python. L’utilisation de GitHub m’est aussi possible.\nDécrire brièvement le parcours ou les intérêts professionnels."
   },
   {
     "objectID": "parcours.html#compétences",
     "href": "parcours.html#compétences",
     "title": "Parcours et compétences",
     "section": "Compétences",
-    "text": "Compétences\n\nR et tidyverse\nQuarto\nGitHub\nVisualisation de données"
+    "text": "Compétences\n\nR et tidyverse\nQuarto\nGitHub\nVisualisation de données\nAlgorithmique"
   },
   {
     "objectID": "parcours.html#expériences-ou-formations",
     "href": "parcours.html#expériences-ou-formations",
     "title": "Parcours et compétences",
     "section": "Expériences ou formations",
-    "text": "Expériences ou formations\nAjouter uniquement les éléments que vous acceptez de rendre publics."
+    "text": "Expériences ou formations\nDans le contexte de mon cours d’analyse de données, j’ai eu à travailler sur un projet concernant les causes et les acteurs majeurs de l’augmentation des émissions de CO2 dans le monde, qui m’a permis de solidifier mes compétences en R ainsi qu’en modélisation prédictive. Un poster concernant notre analyse était à remettre :\n\n\n\n\n\nAjouter uniquement les éléments que vous acceptez de rendre publics."
   },
   {
     "objectID": "realisations.html",
     "href": "realisations.html",
     "title": "Réalisations",
     "section": "",
-    "text": "Contexte:\nProduction:\nOutils:\nValidation ou vérification:\nCe que cette réalisation démontre:\nLimite ou amélioration possible:\nTrace source dans le portfolio:\nLien public, seulement si autorisé:"
+    "text": "Contexte: Cours STT-4230\nProduction: Tout au long de la session\nOutils:\nValidation ou vérification:\nCe que cette réalisation démontre:\n\nUne capacité à utiliser GitHub en permanence lors de travail personnel ou en équipe\n\nLimite ou amélioration possible:\n\nJ’oublie parfois de faire des commit-push régulièrement\n\nTrace source dans le portfolio:\nLien public, seulement si autorisé:"
   },
   {
     "objectID": "realisations.html#réalisation-1-trace-du-portfolio",
     "href": "realisations.html#réalisation-1-trace-du-portfolio",
     "title": "Réalisations",
     "section": "",
-    "text": "Contexte:\nProduction:\nOutils:\nValidation ou vérification:\nCe que cette réalisation démontre:\nLimite ou amélioration possible:\nTrace source dans le portfolio:\nLien public, seulement si autorisé:"
+    "text": "Contexte: Cours STT-4230\nProduction: Tout au long de la session\nOutils:\nValidation ou vérification:\nCe que cette réalisation démontre:\n\nUne capacité à utiliser GitHub en permanence lors de travail personnel ou en équipe\n\nLimite ou amélioration possible:\n\nJ’oublie parfois de faire des commit-push régulièrement\n\nTrace source dans le portfolio:\nLien public, seulement si autorisé:"
   },
   {
     "objectID": "realisations.html#réalisation-2-projet-ou-module-avancé",
     "href": "realisations.html#réalisation-2-projet-ou-module-avancé",
     "title": "Réalisations",
     "section": "Réalisation 2: projet ou module avancé",
-    "text": "Réalisation 2: projet ou module avancé\nContexte:\nProduction:\nOutils:\nValidation ou vérification:\nCe que cette réalisation démontre:\nLimite ou amélioration possible:\nTrace source dans le projet ou le module:\nLien public, seulement si autorisé:"
+    "text": "Réalisation 2: projet ou module avancé\nContexte: Projet en équipe STT-4230\nProduction:\nOutils:\nValidation ou vérification:\nCe que cette réalisation démontre:\n\nUne capacité à créer une ShinyApp en collaboration avec d’autres personnes\nUne capacité à utiliser GitHub de manière collaborative\nUne capacité à trouver des solutions à des problèmes de programmation.\n\nLimite ou amélioration possible:\nLes données utilisées ont été créées synthétiquement grâce à un algorithme Python. Les graphiques, statistiques et modèles créés ne sont donc pas nécessairement représentatifs de la réalité. Le site créé reste un outil pouvant être utile dans la possibilité d’une future étude observant les mêmes variables que celles utilisées pour les graphiques et les statistiques.\nTrace source dans le projet ou le module:\nLien public, seulement si autorisé:"
   },
   {
     "objectID": "realisations.html#justification-technique-courte",
@@ -67,14 +67,14 @@
     "href": "index.html",
     "title": "Guillaume Ouellet",
     "section": "",
-    "text": "Court paragraphe de présentation académique ou professionnelle."
+    "text": "Mon nom est Guillaume Ouellet, j’étudie présentement à l’Université Laval au baccalauréat en statistique. Je m’intéresse à la science des données et l’analyse de données.\nCourt paragraphe de présentation académique ou professionnelle."
   },
   {
     "objectID": "index.html#présentation",
     "href": "index.html#présentation",
     "title": "Guillaume Ouellet",
     "section": "",
-    "text": "Court paragraphe de présentation académique ou professionnelle."
+    "text": "Mon nom est Guillaume Ouellet, j’étudie présentement à l’Université Laval au baccalauréat en statistique. Je m’intéresse à la science des données et l’analyse de données.\nCourt paragraphe de présentation académique ou professionnelle."
   },
   {
     "objectID": "index.html#intérêts",

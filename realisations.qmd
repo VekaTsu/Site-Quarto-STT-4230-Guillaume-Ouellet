@@ -5,39 +5,57 @@ embed-resources: true
 
 ## Réalisation 1: trace du portfolio
 
-Contexte:
+[**Contexte:**]{.underline} Cours STT-4230
 
-Production:
+[**Production:**]{.underline} Tout au long de la session d'automne 2026
 
-Outils:
+[**Outils:**]{.underline}
 
-Validation ou vérification:
+[**Validation ou vérification:**]{.underline}
 
-Ce que cette réalisation démontre:
+[**Ce que cette réalisation démontre:**]{.underline}
 
-Limite ou amélioration possible:
+-   Une capacité à utiliser GitHub en permanence lors de travail personnel ou en équipe
 
-Trace source dans le portfolio:
+[**Limite ou amélioration possible:**]{.underline}
 
-Lien public, seulement si autorisé:
+-   J'oublie parfois de faire des *commit-push* régulièrement
+
+[**Trace source dans le portfolio:**]{.underline}
+
+[**Lien public, seulement si autorisé:**]{.underline}
 
 ## Réalisation 2: projet ou module avancé
 
-Contexte:
+[**Contexte:**]{.underline} Projet en équipe STT-4230
 
-Production:
+[**Production:**]{.underline} Durant la deuxième moitié de la session d'automne 2026
 
-Outils:
+[**Outils:**]{.underline}
 
-Validation ou vérification:
+[**Validation ou vérification:**]{.underline}
 
-Ce que cette réalisation démontre:
+-   Cas limites
 
-Limite ou amélioration possible:
+    -   Combinaisons de variables
 
-Trace source dans le projet ou le module:
+    -   Intervalle vides
 
-Lien public, seulement si autorisé:
+[**Ce que cette réalisation démontre:**]{.underline}
+
+-   Une capacité à créer une ShinyApp en collaboration avec d'autres personnes
+
+-   Une capacité à utiliser GitHub de manière collaborative
+
+-   Une capacité à trouver des solutions à des problèmes de programmation.
+
+[**Limite ou amélioration possible:**]{.underline}
+
+Les données utilisées ont été créées synthétiquement grâce à un algorithme Python. Les graphiques, statistiques et modèles créés ne sont donc pas nécessairement représentatifs de la réalité. Le site créé reste un outil pouvant être utile dans la possibilité d'une future étude observant les mêmes variables que celles utilisées pour les graphiques et les statistiques.
+
+[**Trace source dans le projet ou le module:**]{.underline}
+
+[**Lien public, seulement si autorisé:**]{.underline}
 
 ## Justification technique courte
 

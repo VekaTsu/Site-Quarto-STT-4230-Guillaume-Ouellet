@@ -5,6 +5,8 @@ embed-resources: true
 
 ## Présentation
 
+Mon nom est Guillaume Ouellet, j'étudie présentement à l'Université Laval au baccalauréat en statistique. Je m'intéresse à la science des données et l'analyse de données.
+
 Court paragraphe de présentation académique ou professionnelle.
 
 ## Intérêts

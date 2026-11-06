@@ -19,6 +19,8 @@ Décrire brièvement le parcours ou les intérêts professionnels.
 
 ## Expériences ou formations
 
-Dans le contexte de mon cours d’analyse de données, j’ai eu à travailler sur un projet concernant les causes et les acteurs majeurs de l’augmentation des émissions de CO~2~ dans le monde, qui m’a permis de solidifier mes compétences en R ainsi qu’en modélisation prédictive.
+Dans le contexte de mon cours d’analyse de données, j’ai eu à travailler sur un projet concernant les causes et les acteurs majeurs de l’augmentation des émissions de CO~2~ dans le monde, qui m’a permis de solidifier mes compétences en R ainsi qu’en modélisation prédictive. Un poster concernant notre analyse était à remettre :
+
+![](docs/1793137231440-e13253bf-b845-4fae-969a-1cddca58e01c_1.jpg){fig-align="center" width="70%"}
 
 Ajouter uniquement les éléments que vous acceptez de rendre publics.
