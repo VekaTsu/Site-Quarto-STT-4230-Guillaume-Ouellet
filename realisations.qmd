@@ -1,6 +1,8 @@
 ---
 title: "Réalisations"
 embed-resources: true
+filters:
+  - shinylive
 ---
 
 ## Réalisation 1: trace du portfolio
@@ -15,11 +17,11 @@ embed-resources: true
 
 [**Ce que cette réalisation démontre:**]{.underline}
 
--   Une capacité à utiliser GitHub en permanence lors de travail personnel ou en équipe
+- Une capacité à utiliser GitHub en permanence lors de travail personnel ou en équipe
 
 [**Limite ou amélioration possible:**]{.underline}
 
--   J'oublie parfois de faire des *commit-push* régulièrement
+- J'oublie parfois de faire des *commit-push* régulièrement
 
 [**Trace source dans le portfolio:**]{.underline}
 
@@ -35,23 +37,585 @@ embed-resources: true
 
 [**Validation ou vérification:**]{.underline}
 
--   Cas limites
+- Cas limites
 
-    -   Combinaisons de variables
+  - Combinaisons de variables
 
-    -   Intervalle vides
+  - Intervalle vides
 
 [**Ce que cette réalisation démontre:**]{.underline}
 
--   Une capacité à créer une ShinyApp en collaboration avec d'autres personnes
+- Une capacité à créer une ShinyApp en collaboration avec d'autres personnes
 
--   Une capacité à utiliser GitHub de manière collaborative
+- Une capacité à utiliser GitHub de manière collaborative
 
--   Une capacité à trouver des solutions à des problèmes de programmation.
+- Une capacité à trouver des solutions à des problèmes de programmation.
 
 [**Limite ou amélioration possible:**]{.underline}
 
 Les données utilisées ont été créées synthétiquement grâce à un algorithme Python. Les graphiques, statistiques et modèles créés ne sont donc pas nécessairement représentatifs de la réalité. Le site créé reste un outil pouvant être utile dans la possibilité d'une future étude observant les mêmes variables que celles utilisées pour les graphiques et les statistiques.
+
+```{shinylive-r}
+#| standalone: TRUE
+#| viewerHeight: 600
+
+
+
+# Initialisation de l'environnement
+
+library(shiny)
+library(bslib)
+library(ggplot2)
+library(bsicons)
+library(dplyr)
+
+df = read.csv("../data/raw/raw_data.csv")
+summary(df)
+df$primary_bedtime_app[df$primary_bedtime_app == "Streaming (Netflix/Hulu)"] = "Streaming"
+apps = c("Instagram / Reddit", 
+         "YouTube", 
+         "TikTok / Reels",
+         "News / Reading", 
+         "Streaming", 
+         "Messaging / Chat")
+variables = c(`Temps d'écran` = "bedtime_phone_minutes",
+              `Score de fatigue` = "next_day_fatigue_score",
+              `Temps de sommeil` = "total_sleep_hours")
+df_clean = data.frame(df |> select(c("gender",
+                                     "bedtime_phone_minutes",
+                                     "next_day_fatigue_score",
+                                     "total_sleep_hours",
+                                     "screen_brightness_pct",
+                                     "caffeine_post_5pm_mg",
+                                     "primary_bedtime_app")))
+
+
+# Thème général pour tous les graphiques
+theme_modern <- theme_minimal(base_size = 13) +
+  theme(
+    # Titres
+    plot.title = element_text(
+      face = "bold",
+      size = 13,
+      color = "#263238",
+      hjust = 0.5,
+      margin = margin(b = 15)
+    ),
+    
+    # Axes
+    axis.title = element_text(
+      color = "#37474F",
+      face = "bold",
+      size = 11
+    ),
+    
+    axis.text = element_text(
+      color = "#546E7A",
+      size = 10
+    ),
+    
+    # Quadrillage
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(
+      color = "#E5E9EC",
+      linewidth = 0.5
+    ),
+    panel.grid.minor = element_blank(),
+    
+    # Légende
+    legend.position = "bottom",
+    
+    # Arrière-plan
+    plot.background = element_rect(
+      fill = "white",
+      color = NA
+    ),
+    panel.background = element_rect(
+      fill = "white",
+      color = NA
+    ),
+    
+    # Marges
+    plot.margin = margin(15, 15, 15, 15)
+  )
+
+
+# Thème général de l'application
+app_theme <- bs_theme(
+  version = 5,
+  
+  # Couleurs principales
+  bg = "#F4F7FA",
+  fg = "#263238",
+  primary = "#547FA5",
+  secondary = "#65A69A",
+  
+  # Couleurs complémentaires
+  success = "#65A69A",
+  info = "#547FA5",
+  warning = "#E5A65B",
+  danger = "#D47777",
+  
+  # Typographie
+  base_font = font_google("Inter"),
+  heading_font = font_google("Inter")
+)
+
+
+
+
+# UI pour la page web
+ui <- page_sidebar(
+  
+  # Permet d'avoir des valeurs centrées dans les value_box
+  tags$head(
+    tags$style(HTML("
+    /* Center the value box content */
+    .bslib-value-box .value-box-area {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    /* Center the title */
+    .bslib-value-box .value-box-title {
+      text-align: center !important;
+      width: 100%;
+    }
+
+    /* Center the numerical value */
+    .bslib-value-box .value-box-value {
+      text-align: center !important;
+      width: 100%;
+    }
+
+    /* Center the showcase icon */
+    .bslib-value-box .value-box-showcase {
+      display: flex !important;
+      justify-content: center !important;
+      width: 100%;
+    }
+    
+    /* General application background */
+    body {
+      background-color: #F4F7FA;
+    }
+
+    /* Sidebar */
+    .bslib-sidebar-layout > .sidebar {
+      background-color: #FFFFFF;
+      border-right: 1px solid #E5E9EC;
+    }
+
+    /* Cards */
+    .card {
+      border: 1px solid #E5E9EC;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(38, 50, 56, 0.04);
+      margin-bottom: 15px;
+    }
+
+    /* Card headers */
+    .card-header {
+      background-color: #FFFFFF;
+      color: #263238;
+      font-weight: 600;
+      border-bottom: 1px solid #E5E9EC;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background-color: #547FA5;
+      border-color: #547FA5;
+    }
+
+    .btn-primary:hover {
+      background-color: #416987;
+      border-color: #416987;
+    }
+
+    /* Input labels */
+    .control-label {
+      color: #37474F;
+      font-weight: 600;
+    }
+
+    /* Select inputs */
+    .form-control,
+    .form-select {
+      border-radius: 7px;
+      border-color: #DCE3E8;
+    }
+
+    /* Tables */
+    .table {
+      background-color: #FFFFFF;
+    }
+    
+    /* Make both output containers equally tall */
+    #shiny-output-container-moyenne_score,
+    #shiny-output-container-moyenne_heures {
+      height: 180px !important;
+      min-height: 180px !important;
+      display: flex !important;
+    }
+
+    /* Make the actual value boxes fill their containers */
+    #shiny-output-container-moyenne_score > *,
+    #shiny-output-container-moyenne_heures > * {
+      flex: 1 1 auto !important;
+      height: 100% !important;
+      min-height: 180px !important;
+    }
+
+    /* Ensure the value boxes themselves fill the available space */
+    .bslib-value-box {
+      height: 100% !important;
+      min-height: 180px !important;
+      box-sizing: border-box !important;
+    }
+  "))
+  ),
+  
+  # Titre de l'application
+  title = "Score de fatigue au lendemain par rapport au temps d'écran avant le coucher",
+  
+  # Thème de l'application
+  theme = app_theme,
+  
+  # Sidebar panel pour les entrées
+  sidebar = sidebar(
+    
+    # Menu de type de graphique
+    selectInput(
+      inputId = "selectedabs",
+      label = "Axe des abscisses",
+      choices = variables
+    ),
+    
+    
+    uiOutput("dynamic_graph_input"),
+    
+    uiOutput("dynamic_ord_input"),
+    
+    # Checkbox pour ajouter ou non une droite de régression
+    uiOutput("Droite"),
+    
+    
+    # Slider pour le minimum et le maximum de temps passé sur le téléphone avant le coucher
+    sliderInput(
+      inputId = "phone",
+      label = "Intervalle du temps passé sur le téléphone :",
+      min = 1,
+      max = 180,
+      step = 5,
+      value = c(1,180)
+    ),
+    
+    # Slider pour le minimum et le maximum de la luminosité du téléphone
+    sliderInput(
+      inputId = "brightness",
+      label = "Intervalle de luminosité du téléphone :",
+      min = 10,
+      max = 100,
+      step = 1,
+      value = c(10, 100)
+    ),
+    
+    # Slider pour le minimum et le maximum de la quantité de cafféine consommée après 5pm
+    sliderInput(
+      inputId = "caffeine",
+      label = "Intervalle de quantité de cafféine consommé après 5pm",
+      min = min(df$caffeine_post_5pm_mg),
+      max = max(df$caffeine_post_5pm_mg),
+      step = 1,
+      value = c(min(df$caffeine_post_5pm_mg), max(df$caffeine_post_5pm_mg))
+    ),
+    
+    # Checkbox des applications utilisées
+    checkboxGroupInput(
+      inputId = "application",
+      label = "Application utilisée :",
+      choices = c("Instagram / Reddit", 
+                  "YouTube", 
+                  "TikTok / Reels",
+                  "News / Reading", 
+                  "Streaming", 
+                  "Messaging / Chat"),
+      selected = c("Instagram / Reddit", 
+                   "YouTube", 
+                   "TikTok / Reels",
+                   "News / Reading", 
+                   "Streaming", 
+                   "Messaging / Chat")
+    )
+  ),
+  card(
+    "Statistiques générales utiles"
+  ),
+  
+  # Output
+  card(
+    card_header("Visualisation des données"),
+    card_body(
+      plotOutput(
+        outputId = "distPlot",
+        height = "450px"
+      )
+    )
+  ),
+  card(
+    card_header("Statistiques générales"),
+    
+    
+    card_body(
+      layout_columns(
+        col_widths = c(6, 6),
+        
+        uiOutput("moyenne_score"),
+        uiOutput("moyenne_heures")
+      )
+    )
+  ),
+  tableOutput(outputId = "df_filtered")
+  
+)
+
+
+
+
+server <- function(input, output) {
+  
+  
+  # Modifie les sélections pour le type de graphique par rapport à la variable utilisée
+  
+  output$dynamic_graph_input = renderUI({
+    
+    req(input$selectedabs)
+    
+    if (input$selectedabs == "bedtime_phone_minutes") {
+      
+      selectInput(
+        inputId = "typegraph",
+        label = "Type de graphique",
+        choices = c("Points",
+                    "Densité",
+                    "Histogramme")
+        
+        
+      )} else if (input$selectedabs == "next_day_fatigue_score") {
+        
+        
+        selectInput(
+          inputId = "typegraph",
+          label = "Type de graphique",
+          choices = c("Points",
+                      "ABC",
+                      "Densité",
+                      "Histogramme")
+        )
+        
+        
+      } else if (input$selectedabs == "total_sleep_hours") {
+        
+        
+        selectInput(
+          inputId = "typegraph",
+          label = "Type de graphique",
+          choices = c("Points",
+                      "Densité",
+                      "Histogramme")
+        )
+      }
+  })
+  
+  # Menu déroulant de la variable en ordonnée qui apparait si le type de graphique est parmis 
+  # une sélection
+  output$dynamic_ord_input <- renderUI({
+    
+    req(input$typegraph)
+    
+    if (input$typegraph %in% c("Points")) {
+      selectInput(
+        inputId = "selectedord",
+        label = "Axe des ordonnées",
+        choices = variables[!variables == input$selectedabs],
+        selected = variables[!variables == input$selectedabs][1])
+    } else {
+      return(NULL)
+    }
+  })
+  
+  
+  output$Droite <- renderUI({
+    req(input$typegraph)
+    
+    if (input$typegraph == "Points") {
+      checkboxInput(
+        inputId = "dregr",
+        label = "Droite de régression",
+        value = FALSE
+      )
+    }
+  })
+  
+  
+  # Reactive data frame modifié avec les options
+  
+  rdf = reactive({
+    
+    df_clean |> filter(
+      between(
+        x = bedtime_phone_minutes,
+        left = input$phone[1], #min
+        right = input$phone[2] #max
+      ) & between(
+        x = screen_brightness_pct,
+        left = input$brightness[1], #min
+        right = input$brightness[2] #max
+      ) &
+        primary_bedtime_app %in% input$application &
+        between(
+          x = caffeine_post_5pm_mg,
+          left = input$caffeine[1], #min
+          right = input$caffeine[2] #max
+        )
+    )
+  })
+  
+  
+  
+  
+  # Modèle réactif pour la droite de régression
+  rmodel = reactive({
+    
+    req(input$selectedabs)
+    req(input$selectedord)
+    
+    lm(get(input$selectedord) ~ get(input$selectedabs), data = rdf())
+  })
+  
+  # Un nuage de points ou un diagramme de densité, dépendemment de l'option 
+  # sélectionnée dans l'input "typegraph"
+  output$distPlot <- renderPlot({
+    
+    
+    # Requests permettent d'éviter des flashs d'erreur lorsque les inputs changent
+    req(input$selectedabs)
+    req(input$typegraph) 
+    req(input$selectedord)
+    
+    
+    
+    if (input$typegraph == "Points") {
+      
+      # Nuage de points
+      ggplot() +
+        geom_point(mapping = aes(x = get(input$selectedabs),
+                                 y = get(input$selectedord)),
+                   data = rdf(),
+                   color = "#547FA5",
+                   alpha = 0.65,
+                   size = 1.5) +
+        geom_abline(slope = rmodel()$coefficients[[2]],
+                    intercept = rmodel()$coefficient[[1]],
+                    color = "black",
+                    linewidth = ifelse(input$dregr, 1, 0)) +
+        geom_abline(slope = rmodel()$coefficients[[2]],
+                    intercept = rmodel()$coefficient[[1]],
+                    color = "#EFCFB3",
+                    linewidth = ifelse(input$dregr, 0.7, 0)) +
+        labs(title = paste("Nuage de point du", 
+                           tolower(names(variables[variables == input$selectedabs])),
+                           "par rapport au score de fatigue au lendemain",
+                           sep = " "),
+             x = names(variables[variables == input$selectedabs]),
+             y = names(variables[variables == input$selectedord])) + 
+        theme_modern
+      
+      
+      
+    } else if (input$typegraph == "Densité") {
+      
+      # Graphique de densité
+      ggplot() +
+        geom_density(mapping = aes(x = get(input$selectedabs)),
+                     data = rdf(),
+                     fill = "#65A69A",
+                     color = "#438C7E",
+                     alpha = 0.35,
+                     linewidth = 1.1) +
+        labs(title = paste("Graphique de densité du",
+                           tolower(names(variables[variables == input$selectedabs])),
+                           sep = " "),
+             x = names(variables[variables == input$selectedabs]),
+             y = "Densité") + 
+        theme_modern
+      
+      
+    } else if (input$typegraph == "Histogramme") {
+      
+      # Graphique en barres
+      ggplot() +
+        geom_histogram(mapping = aes(x = get(input$selectedabs)),
+                       data = rdf(),
+                       fill = "#547FA5",
+                       color = "white",
+                       alpha = 0.9,
+                       bins = 20,
+                       linewidth = 0.4) +
+        labs(title = paste("Histogramme du",
+                           tolower(names(variables[variables == input$selectedabs])),
+                           sep = " "),
+             x = names(variables[variables == input$selectedabs]),
+             y = "Quantité")
+    }
+  })
+  
+  
+  # Boîte de la moyenne du score de fatigue au lendemain (réactive)
+  output$moyenne_score <- renderUI({
+    box_value = mean(rdf()[, "next_day_fatigue_score"])
+    
+    # Thème de la boîte (probablement à changer ou retirer)
+    box_theme = if(box_value <= 5) "success" else "danger"
+    
+    # Valeur de la boîte
+    value_box(
+      title = "Moyenne du score de fatigue au lendemain",
+      value = round(box_value, digits = 2),
+      theme = box_theme,
+      showcase = bs_icon("bar-chart"),
+      p("Valeur de 1 à 10")
+    )
+  })
+  
+  
+  # Boîte de la moyenne d'heures de sommeil (réactive)
+  output$text = renderPrint({input$typegraph})
+  output$moyenne_heures <- renderUI({
+    box_value = mean(rdf()$total_sleep_hours)
+    
+    # Thème de la boîte (probablement à modifier ou retirer)
+    box_theme = if(box_value < 5) "danger" else "success"
+    
+    # Valeur de la boîte
+    value_box(
+      title = "Moyenne du temps de sommeil",
+      value = round(box_value, digits = 2),
+      theme = box_theme,
+      showcase = bs_icon("bar-chart")
+    )
+  })
+  
+}
+
+
+
+# Afin d'ouvrir l'application
+shinyApp(ui = ui, server = server)
+```
 
 [**Trace source dans le projet ou le module:**]{.underline}
 

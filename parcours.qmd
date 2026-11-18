@@ -11,11 +11,11 @@ Décrire brièvement le parcours ou les intérêts professionnels.
 
 ## Compétences
 
--   R et tidyverse
--   Quarto
--   GitHub
--   Visualisation de données
--   Algorithmique
+- R et tidyverse
+- Quarto
+- GitHub
+- Visualisation de données
+- Algorithmique
 
 ## Expériences ou formations
 
